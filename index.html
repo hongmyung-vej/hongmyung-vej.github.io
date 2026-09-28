@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>이홍명 | LEE HONGMYUNG</title>
-
-  <meta name="description"
-        content="이홍명 | LEE HONGMYUNG - SBS A&T 영상편집기자">
+  <meta
+    name="description"
+    content="이홍명 | LEE HONGMYUNG - SBS A&T 영상편집기자"
+  >
 
   <style>
-
     * {
       margin: 0;
       padding: 0;
@@ -19,6 +19,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 100px;
     }
 
     body {
@@ -29,41 +30,34 @@
         "Noto Sans KR",
         "Apple SD Gothic Neo",
         sans-serif;
-
       background: #fafafa;
       color: #111;
       line-height: 1.7;
       word-break: keep-all;
+      overflow-wrap: break-word;
     }
-
-
-    /* 전체 폭 */
 
     .container {
       width: min(1100px, calc(100% - 40px));
       margin: 0 auto;
     }
 
-
     /* 상단 메뉴 */
-
     header {
       position: sticky;
       top: 0;
       z-index: 100;
-
-      background: rgba(250,250,250,0.94);
+      background: rgba(250, 250, 250, 0.94);
       backdrop-filter: blur(10px);
-
       border-bottom: 1px solid #e7e7e7;
     }
 
     .nav {
       min-height: 72px;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
     }
 
     .logo {
@@ -80,7 +74,6 @@
     nav a {
       color: #111;
       text-decoration: none;
-
       font-size: 14px;
       font-weight: 500;
     }
@@ -89,46 +82,55 @@
       opacity: 0.55;
     }
 
+    nav a:focus-visible {
+      outline: 2px solid #111;
+      outline-offset: 5px;
+    }
 
     /* 첫 화면 */
-
     .hero {
       min-height: 78vh;
-
       display: flex;
       align-items: center;
-
+      padding: 0;
       border-bottom: 1px solid #e5e5e5;
     }
 
     .hero-content {
-      padding: 100px 0;
+      padding: 80px 0;
+    }
+
+    .profile-photo {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+      margin-bottom: 30px;
     }
 
     .hero-small {
       font-size: 14px;
       color: #777;
-
       letter-spacing: 2px;
-
       margin-bottom: 22px;
     }
 
     h1 {
-      font-size: clamp(52px, 8vw, 94px);
-
-      line-height: 1.03;
-
+      font-size: clamp(40px, 8vw, 94px);
+      line-height: 1.12;
       letter-spacing: -4px;
-
       font-weight: 800;
+    }
+
+    .english-name {
+      display: block;
+      margin-top: 8px;
     }
 
     .hero-info {
       margin-top: 34px;
-
       font-size: clamp(18px, 2vw, 25px);
-
       letter-spacing: -0.6px;
     }
 
@@ -136,628 +138,456 @@
       color: #777;
     }
 
-
     /* 공통 섹션 */
-
     section {
       padding: 90px 0;
       border-bottom: 1px solid #e5e5e5;
     }
 
     .section-layout {
-
       display: grid;
-
-      grid-template-columns: 190px 1fr;
-
+      grid-template-columns: 190px minmax(0, 1fr);
       gap: 60px;
     }
 
     .section-title {
-
       font-size: 16px;
-
       font-weight: 700;
     }
 
     .content {
-
       max-width: 760px;
-
+      min-width: 0;
       font-size: 18px;
-
       letter-spacing: -0.4px;
     }
 
     .content p {
-
       margin-bottom: 20px;
     }
 
-
     /* 경력 */
-
     .career {
-
       margin-top: 40px;
     }
 
     .career-row {
-
       display: grid;
-
-      grid-template-columns: 110px 1fr;
-
+      grid-template-columns: 110px minmax(0, 1fr);
+      gap: 12px;
       padding: 18px 0;
-
       border-top: 1px solid #ddd;
     }
 
     .career-year {
-
-      color: #888;
-
+      color: #777;
       font-size: 14px;
     }
 
-
     /* 작업 */
-
     .work-grid {
-
       display: grid;
-
-      grid-template-columns: repeat(2, 1fr);
-
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 20px;
     }
 
     .work-card {
-
-      background: white;
-
+      background: #fff;
       border: 1px solid #e1e1e1;
-
       border-radius: 16px;
-
       padding: 28px;
-
       min-height: 180px;
-
-      transition: 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
     .work-card:hover {
-
       transform: translateY(-3px);
-
-      box-shadow:
-        0 12px 30px rgba(0,0,0,0.07);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
     }
 
     .work-type {
-
-      color: #888;
-
+      color: #777;
       font-size: 13px;
-
       margin-bottom: 12px;
     }
 
     .work-title {
-
       font-size: 20px;
-
       font-weight: 700;
-
       line-height: 1.4;
-
       margin-bottom: 12px;
     }
 
     .work-desc {
-
       font-size: 15px;
-
       color: #666;
     }
 
-
     /* 연구 */
-
     .research-title {
-
       font-size: 21px;
-
       font-weight: 700;
-
       margin-bottom: 10px;
     }
 
     .research-info {
-
       color: #666;
-
       font-size: 15px;
     }
 
+    .research-publication {
+      margin-top: 16px;
+    }
 
     /* 활동 */
-
     .activity-item {
-
       padding: 20px 0;
-
       border-top: 1px solid #ddd;
     }
 
     .activity-item:first-child {
-
       border-top: 0;
       padding-top: 0;
     }
 
     .activity-title {
-
       font-weight: 700;
-
       font-size: 18px;
     }
 
     .activity-desc {
-
       color: #666;
-
       margin-top: 5px;
-
       font-size: 15px;
     }
 
-
-    /* 연락 */
-
-    .contact-text {
-
-      font-size: 24px;
-
-      font-weight: 600;
-    }
-
-
     /* 하단 */
-
     footer {
-
       padding: 40px 0 60px;
-
-      color: #888;
-
+      color: #777;
       font-size: 13px;
     }
 
-
     /* 모바일 */
-
     @media (max-width: 720px) {
-
       .container {
-
         width: calc(100% - 30px);
       }
 
       .nav {
-
         min-height: 65px;
+        padding: 14px 0;
+        flex-wrap: wrap;
+        gap: 10px 20px;
       }
 
       .logo {
-
         font-size: 15px;
       }
 
       nav {
-
-        gap: 14px;
+        gap: 18px;
       }
 
       nav a {
-
         font-size: 13px;
       }
 
       h1 {
+        letter-spacing: -2px;
+      }
 
-        letter-spacing: -2.5px;
+      .english-name {
+        font-size: clamp(28px, 7.8vw, 56px);
+        letter-spacing: -1.5px;
       }
 
       .hero {
-
         min-height: 70vh;
       }
 
       .hero-content {
+        padding: 60px 0;
+      }
 
-        padding: 75px 0;
+      .profile-photo {
+        width: 150px;
+        height: 150px;
       }
 
       section {
-
         padding: 65px 0;
       }
 
       .section-layout {
-
         grid-template-columns: 1fr;
-
         gap: 28px;
       }
 
-      .work-grid {
+      .content {
+        font-size: 17px;
+      }
 
+      .work-grid {
         grid-template-columns: 1fr;
       }
 
       .career-row {
-
-        grid-template-columns: 80px 1fr;
+        grid-template-columns: 90px minmax(0, 1fr);
       }
-
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .work-card {
+        transition: none;
+      }
+
+      .work-card:hover {
+        transform: none;
+      }
+    }
   </style>
 </head>
 
-
 <body>
 
-
-<header>
-
-  <div class="container nav">
-
-    <div class="logo">
-      이홍명 · LEE HONGMYUNG
-    </div>
-
-    <nav>
-
-      <a href="#about">소개</a>
-
-      <a href="#work">작업</a>
-
-      <a href="#research">연구</a>
-
-      <a href="#activity">활동</a>
-
-    </nav>
-
-  </div>
-
-</header>
-
-
-
-<main>
-
-
-<!-- 첫 화면 -->
-
-<section class="hero">
-
-  <div class="container">
-
-    <div class="hero-content">
-
-      <div class="hero-small">
-        VIDEO EDITOR JOURNALIST
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        이홍명 · LEE HONGMYUNG
       </div>
 
-      <h1>
-        이홍명<br>
-        LEE HONGMYEONG
-      </h1>
-
-      <div class="hero-info">
-
-        SBS A&T 영상편집기자
-
-        <br>
-
-        <span class="sub">
-          한국영상편집기자협회 회장
-        </span>
-
-      </div>
-
+      <nav aria-label="주요 메뉴">
+        <a href="#about">소개</a>
+        <a href="#work">작업</a>
+        <a href="#research">연구</a>
+        <a href="#activity">활동</a>
+      </nav>
     </div>
+  </header>
 
-  </div>
+  <main>
 
-</section>
+    <!-- 첫 화면 -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
 
+          <!-- 업로드한 사진 파일명과 아래 src를 맞춰주세요. -->
+          <img
+            class="profile-photo"
+            src="profile.jpg"
+            alt="이홍명 프로필 사진"
+            width="180"
+            height="180"
+          >
 
-
-<!-- 소개 -->
-
-<section id="about">
-  <div class="container">
-    <div class="section-layout">
-
-      <div class="section-title">ABOUT</div>
-
-      <div class="content">
-        <p>
-          2014년부터 SBS A&amp;T에서 뉴스 영상편집기자로 일하고 있습니다.
-          뉴스 스토리에 적합한 영상과 음향을 선택하고,
-          이를 편집하여 하나의 완성된 콘텐츠로 만듭니다.
-        </p>
-
-        <p>
-          같은 영상도 어떤 장면을 앞뒤에 놓고,
-          어떤 소리를 함께 쓰느냐에 따라 다르게 전달될 수 있습니다.
-          편집 과정에서 사건의 맥락이 빠지거나
-          장면의 의미가 달라지지 않도록 고민합니다.
-        </p>
-
-        <p>
-          중앙대학교 대학원에서 방송영상뉴미디어를 전공하고,
-          「영상편집기자들의 뉴스 제작 경험과 개선 방안 인식」을
-          주제로 석사학위 논문을 썼습니다.
-          해당 연구는 한국방송학회가 발행하는
-          『한국방송학보』에도 게재됐습니다.
-          현장에서 경험한 편집 과정과 고민을
-          연구와 글로도 기록하고 있습니다.
-        </p>
-
-        <p>
-          한국영상편집기자협회 회장으로 활동하며,
-          회원들이 뉴스 제작 경험을 나누고 함께 배울 수 있는
-          교육과 교류의 자리를 마련하고 있습니다.
-        </p>
-
-        <div class="career">
-          <div class="career-row">
-            <div class="career-year">2014 — 현재</div>
-            <div>SBS A&amp;T 영상편집기자</div>
+          <div class="hero-small">
+            VIDEO EDITOR JOURNALIST
           </div>
 
-          <div class="career-row">
-            <div class="career-year">현재</div>
-            <div>한국영상편집기자협회 회장</div>
+          <h1>
+            이홍명
+            <span class="english-name">LEE HONGMYUNG</span>
+          </h1>
+
+          <div class="hero-info">
+            SBS A&amp;T 영상편집기자
+            <br>
+            <span class="sub">
+              한국영상편집기자협회 회장
+            </span>
           </div>
 
-          <div class="career-row">
-            <div class="career-year">2025</div>
-            <div>
-              중앙대학교 대학원 방송영상뉴미디어 석사
-              <div class="research-info">
-                학위논문 · 영상편집기자들의 뉴스 제작 경험과 개선 방안 인식
+        </div>
+      </div>
+    </section>
+
+    <!-- 소개 -->
+    <section id="about">
+      <div class="container">
+        <div class="section-layout">
+
+          <h2 class="section-title">ABOUT</h2>
+
+          <div class="content">
+            <p>
+              2014년부터 SBS A&amp;T에서 뉴스 영상편집기자로 일하고 있습니다.
+              뉴스 스토리에 적합한 영상과 음향을 선택하고,
+              이를 편집하여 하나의 완성된 콘텐츠로 만듭니다.
+            </p>
+
+            <p>
+              같은 영상도 어떤 장면을 앞뒤에 놓고,
+              어떤 소리를 함께 쓰느냐에 따라 다르게 전달될 수 있습니다.
+              편집 과정에서 사건의 맥락이 빠지거나
+              장면의 의미가 달라지지 않도록 고민합니다.
+            </p>
+
+            <p>
+              중앙대학교 대학원에서 방송영상뉴미디어를 전공하고,
+              「영상편집기자들의 뉴스 제작 경험과 개선 방안 인식」을
+              주제로 석사학위 논문을 썼습니다.
+              해당 연구는 한국방송학회가 발행하는
+              『한국방송학보』에도 게재됐습니다.
+              현장에서 경험한 편집 과정과 고민을
+              연구와 글로도 기록하고 있습니다.
+            </p>
+
+            <p>
+              한국영상편집기자협회 회장으로 활동하며,
+              회원들이 뉴스 제작 경험을 나누고 함께 배울 수 있는
+              교육과 교류의 자리를 마련하고 있습니다.
+            </p>
+
+            <div class="career">
+              <div class="career-row">
+                <div class="career-year">2014 — 현재</div>
+                <div>SBS A&amp;T 영상편집기자</div>
+              </div>
+
+              <div class="career-row">
+                <div class="career-year">현재</div>
+                <div>한국영상편집기자협회 회장</div>
+              </div>
+
+              <div class="career-row">
+                <div class="career-year">2025</div>
+                <div>
+                  중앙대학교 대학원 방송영상뉴미디어 석사
+                  <div class="research-info">
+                    학위논문 · 영상편집기자들의 뉴스 제작 경험과 개선 방안 인식
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 작업 -->
+    <section id="work">
+      <div class="container">
+        <div class="section-layout">
+
+          <h2 class="section-title">WORK</h2>
+
+          <div class="work-grid">
+            <article class="work-card">
+              <div class="work-type">NEWS</div>
+              <h3 class="work-title">뉴스 영상편집</h3>
+              <div class="work-desc">
+                SBS 뉴스 영상편집 작업을 기록합니다.
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-type">INVESTIGATIVE REPORT</div>
+              <h3 class="work-title">탐사보도</h3>
+              <div class="work-desc">
+                탐사보도와 연속보도 영상편집 작업을 정리합니다.
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-type">SPORTS</div>
+              <h3 class="work-title">스포츠뉴스</h3>
+              <div class="work-desc">
+                국제대회와 국내외 스포츠뉴스 영상편집 작업을 기록합니다.
+              </div>
+            </article>
+
+            <article class="work-card">
+              <div class="work-type">OTHER WORK</div>
+              <h3 class="work-title">기타 작업</h3>
+              <div class="work-desc">
+                방송과 디지털 영상 제작 작업을 추가할 예정입니다.
+              </div>
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 연구 -->
+    <section id="research">
+      <div class="container">
+        <div class="section-layout">
+
+          <h2 class="section-title">RESEARCH</h2>
+
+          <div class="content">
+            <h3 class="research-title">
+              영상편집기자들의 뉴스 제작 경험과 개선 방안 인식
+            </h3>
+
+            <div class="research-info">
+              중앙대학교 대학원 방송영상뉴미디어 석사학위 논문
+            </div>
+
+            <div class="research-info research-publication">
+              한국방송학회 『한국방송학보』 게재
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 활동 -->
+    <section id="activity">
+      <div class="container">
+        <div class="section-layout">
+
+          <h2 class="section-title">ACTIVITY</h2>
+
+          <div class="content">
+            <div class="activity-item">
+              <h3 class="activity-title">
+                한국영상편집기자협회
+              </h3>
+              <div class="activity-desc">
+                회장
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <h3 class="activity-title">
+                영상편집기자 교육 · 연구
+              </h3>
+              <div class="activity-desc">
+                영상편집과 뉴스 제작에 관한 교육과 연구 활동을 기록합니다.
+              </div>
+            </div>
+
+            <div class="activity-item">
+              <h3 class="activity-title">
+                방송 · 저널리즘
+              </h3>
+              <div class="activity-desc">
+                현장에서 경험한 뉴스 영상편집과 저널리즘 이야기를 기록합니다.
               </div>
             </div>
           </div>
-        </div>
 
+        </div>
       </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 LEE HONGMYUNG
     </div>
-  </div>
-</section>
-
-
-<!-- 작업 -->
-
-<section id="work">
-
-  <div class="container">
-
-    <div class="section-layout">
-
-      <div class="section-title">
-        WORK
-      </div>
-
-      <div class="work-grid">
-
-
-        <div class="work-card">
-
-          <div class="work-type">
-            NEWS
-          </div>
-
-          <div class="work-title">
-            뉴스 영상편집
-          </div>
-
-          <div class="work-desc">
-            SBS 뉴스 영상편집 작업을 기록합니다.
-          </div>
-
-        </div>
-
-
-
-        <div class="work-card">
-
-          <div class="work-type">
-            INVESTIGATIVE REPORT
-          </div>
-
-          <div class="work-title">
-            탐사보도
-          </div>
-
-          <div class="work-desc">
-            탐사보도와 연속보도 영상편집 작업을 정리합니다.
-          </div>
-
-        </div>
-
-
-
-        <div class="work-card">
-
-          <div class="work-type">
-            SPORTS
-          </div>
-
-          <div class="work-title">
-            스포츠뉴스
-          </div>
-
-          <div class="work-desc">
-            국제대회와 국내외 스포츠뉴스 영상편집 작업을 기록합니다.
-          </div>
-
-        </div>
-
-
-
-        <div class="work-card">
-
-          <div class="work-type">
-            OTHER WORK
-          </div>
-
-          <div class="work-title">
-            기타 작업
-          </div>
-
-          <div class="work-desc">
-            방송과 디지털 영상 제작 작업을 추가할 예정입니다.
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- 연구 -->
-
-<section id="research">
-
-  <div class="container">
-
-    <div class="section-layout">
-
-      <div class="section-title">
-        RESEARCH
-      </div>
-
-      <div class="content">
-
-        <div class="research-title">
-          영상편집기자들의 뉴스 제작 경험과 개선 방안 인식
-        </div>
-
-        <div class="research-info">
-          중앙대학교 대학원 방송영상뉴미디어 석사학위 논문
-        </div>
-
-        <br>
-
-        <div class="research-info">
-          한국방송학보 게재
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- 활동 -->
-
-<section id="activity">
-
-  <div class="container">
-
-    <div class="section-layout">
-
-      <div class="section-title">
-        ACTIVITY
-      </div>
-
-
-      <div class="content">
-
-
-        <div class="activity-item">
-
-          <div class="activity-title">
-            한국영상편집기자협회
-          </div>
-
-          <div class="activity-desc">
-            회장
-          </div>
-
-        </div>
-
-
-
-        <div class="activity-item">
-
-          <div class="activity-title">
-            영상편집기자 교육 · 연구
-          </div>
-
-          <div class="activity-desc">
-            영상편집과 뉴스 제작에 관한 교육과 연구 활동을 기록합니다.
-          </div>
-
-        </div>
-
-
-
-        <div class="activity-item">
-
-          <div class="activity-title">
-            방송 · 저널리즘
-          </div>
-
-          <div class="activity-desc">
-            현장에서 경험한 뉴스 영상편집과 저널리즘 이야기를 기록합니다.
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-</main>
-
-
-
-<footer>
-
-  <div class="container">
-
-    © 2026 LEE HONGMYUNG
-
-  </div>
-
-</footer>
-
+  </footer>
 
 </body>
 </html>
