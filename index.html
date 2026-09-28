@@ -680,6 +680,89 @@
       © 2026 LEE HONGMYUNG
     </div>
   </footer>
+<script>
+(async function () {
+  const grid = document.querySelector("#work .work-grid");
+  if (!grid) return;
 
+  grid.textContent = "작업 영상을 불러오는 중입니다.";
+
+  try {
+    const response = await fetch("./videos.json", {
+      cache: "no-store"
+    });
+
+    if (!response.ok) {
+      throw new Error("영상 목록을 불러올 수 없습니다.");
+    }
+
+    const data = await response.json();
+    if (!Array.isArray(data.videos)) {
+      throw new Error("영상 목록 형식 오류");
+    }
+
+    grid.replaceChildren();
+
+    if (data.videos.length === 0) {
+      grid.textContent =
+        "현재 확인 범위에서 영상편집 크레딧이 일치하는 영상이 없습니다.";
+      return;
+    }
+
+    for (const video of data.videos) {
+      if (!/^[A-Za-z0-9_-]{11}$/.test(video.id)) continue;
+
+      const card = document.createElement("a");
+      card.className = "work-card";
+      card.href = "https://www.youtube.com/watch?v=" + video.id;
+      card.target = "_blank";
+      card.rel = "noopener noreferrer";
+      card.style.cssText =
+        "display:block;color:inherit;text-decoration:none;padding:20px;";
+
+      if (video.thumbnail) {
+        const image = document.createElement("img");
+        image.src = video.thumbnail;
+        image.alt = "";
+        image.loading = "lazy";
+        image.style.cssText =
+          "display:block;width:100%;aspect-ratio:16/9;" +
+          "object-fit:cover;border-radius:8px;margin-bottom:16px;";
+        card.append(image);
+      }
+
+      const date = document.createElement("div");
+      date.className = "work-type";
+      date.textContent = new Date(video.publishedAt)
+        .toLocaleDateString("ko-KR", {
+          timeZone: "Asia/Seoul",
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit"
+        });
+
+      const title = document.createElement("h3");
+      title.className = "work-title";
+      title.textContent = video.title;
+
+      const credit = document.createElement("div");
+      credit.className = "work-desc";
+      credit.textContent = "영상편집 · 이홍명";
+
+      const linkLabel = document.createElement("div");
+      linkLabel.className = "work-desc";
+      linkLabel.style.marginTop = "12px";
+      linkLabel.textContent = "YouTube에서 보기 ↗";
+
+      card.append(date, title, credit, linkLabel);
+      grid.append(card);
+    }
+  } catch (error) {
+    grid.textContent =
+      "영상 목록을 불러오지 못했습니다. 잠시 후 다시 확인해 주세요.";
+  }
+})();
+</script>
+  
 </body>
 </html>
