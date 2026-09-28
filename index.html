@@ -351,6 +351,60 @@
         transform: none;
       }
     }
+    /* 사진과 이름을 나란히 배치 */
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 80px 0;
+}
+
+.profile-photo {
+  width: 220px;
+  height: 220px;
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero h1 {
+  font-size: clamp(42px, 5.5vw, 68px);
+  letter-spacing: -2px;
+}
+
+.hero .english-name {
+  font-size: clamp(28px, 4vw, 50px);
+  letter-spacing: -1.5px;
+}
+
+.hero-info {
+  margin-top: 24px;
+}
+
+/* 휴대폰에서는 위아래로 배치 */
+@media (max-width: 720px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 55px 0;
+  }
+
+  .profile-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .hero .english-name {
+    font-size: clamp(26px, 7.5vw, 44px);
+    letter-spacing: -1px;
+  }
+}
+    
   </style>
 </head>
 
@@ -375,40 +429,41 @@
 
   <main>
 
-    <!-- 첫 화면 -->
-    <section class="hero">
-      <div class="container">
-        <div class="hero-content">
+<!-- 첫 화면 -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
 
-          <!-- 사진 파일명이 다르면 src를 수정해주세요. -->
-          <img
-            class="profile-photo"
-            src="profile.jpg"
-            alt="이홍명 프로필 사진"
-            width="180"
-            height="180"
-          >
+      <img
+        class="profile-photo"
+        src="profile.jpg"
+        alt="이홍명 프로필 사진"
+        width="220"
+        height="220"
+      >
 
-          <div class="hero-small">
-            VIDEO EDITOR JOURNALIST
-          </div>
+      <div class="hero-text">
+        <div class="hero-small">
+          VIDEO EDITOR JOURNALIST
+        </div>
 
-          <h1>
-            이홍명
-            <span class="english-name">LEE HONGMYUNG</span>
-          </h1>
+        <h1>
+          이홍명
+          <span class="english-name">LEE HONGMYUNG</span>
+        </h1>
 
-          <div class="hero-info">
-            SBS A&amp;T 영상편집기자
-            <br>
-            <span class="sub">
-              한국영상편집기자협회 회장
-            </span>
-          </div>
-
+        <div class="hero-info">
+          SBS A&amp;T 영상편집기자
+          <br>
+          <span class="sub">
+            한국영상편집기자협회 회장
+          </span>
         </div>
       </div>
-    </section>
+
+    </div>
+  </div>
+</section>
 
     <!-- 소개 -->
     <section id="about">
