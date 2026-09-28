@@ -19,7 +19,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      scroll-padding-top: 120px;
     }
 
     body {
@@ -68,7 +68,8 @@
 
     nav {
       display: flex;
-      gap: 26px;
+      flex-wrap: wrap;
+      gap: 12px 26px;
     }
 
     nav a {
@@ -166,7 +167,7 @@
       margin-bottom: 20px;
     }
 
-    /* 경력 */
+    /* 경력과 수상 */
     .career {
       margin-top: 40px;
     }
@@ -286,7 +287,7 @@
       }
 
       nav {
-        gap: 18px;
+        gap: 10px 18px;
       }
 
       nav a {
@@ -355,6 +356,7 @@
 
 <body>
 
+  <!-- 상단 메뉴 -->
   <header>
     <div class="container nav">
       <div class="logo">
@@ -363,6 +365,7 @@
 
       <nav aria-label="주요 메뉴">
         <a href="#about">소개</a>
+        <a href="#awards">수상</a>
         <a href="#work">작업</a>
         <a href="#research">연구</a>
         <a href="#activity">활동</a>
@@ -377,7 +380,7 @@
       <div class="container">
         <div class="hero-content">
 
-          <!-- 업로드한 사진 파일명과 아래 src를 맞춰주세요. -->
+          <!-- 사진 파일명이 다르면 src를 수정해주세요. -->
           <img
             class="profile-photo"
             src="profile.jpg"
@@ -467,6 +470,40 @@
             </div>
 
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 수상 -->
+    <section id="awards">
+      <div class="container">
+        <div class="section-layout">
+
+          <h2 class="section-title">AWARDS · 수상</h2>
+
+          <div class="content">
+            <div class="career-row">
+              <div class="career-year">
+                <time datetime="2020-07-01">2020.07.01</time>
+              </div>
+              <div>
+                SBS 2020 상반기 작품상
+              </div>
+            </div>
+
+            <div class="career-row">
+              <div class="career-year">
+                <time datetime="2018-12-03">2018.12.03</time>
+              </div>
+              <div>
+                제7회 한국온라인저널리즘
+                <div class="research-info">
+                  뉴스서비스 기획 부문
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
